@@ -99,7 +99,7 @@ return {
         },
         ["<Leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
         ["<Leader>fy"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" },
-        -- ["<Leader>/"] = { function() require("telescope.builtin").live_grep() end, desc = "Find words" },
+        ["<Leader>/"] = { function() require("telescope.builtin").live_grep() end, desc = "Find words", expr = false },
 
         -- Disable idiot mappings
         ["|"] = false,
