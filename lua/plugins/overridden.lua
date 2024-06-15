@@ -4,6 +4,10 @@ return {
     opts = function(_, opts)
       opts.sources = { "filesystem" }
       opts.filesystem.filtered_items.visible = true
+      opts.filesystem.filtered_items.never_show = {
+        ".git",
+        ".DS_Store",
+      }
     end,
   },
   {
