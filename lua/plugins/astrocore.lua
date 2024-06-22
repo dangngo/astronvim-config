@@ -1,17 +1,23 @@
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 
-local osc52_clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy "+",
-    ["*"] = require("vim.ui.clipboard.osc52").copy "*",
-  },
-  paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste "+",
-    ["*"] = require("vim.ui.clipboard.osc52").paste "*",
-  },
-}
+local _clipboard = {}
+local _ok, _ = pcall(require, "vim.ui.clipboard.osc52")
+if _ok then
+  _clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy "+",
+      ["*"] = require("vim.ui.clipboard.osc52").copy "*",
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste "+",
+      ["*"] = require("vim.ui.clipboard.osc52").paste "*",
+    },
+  }
+else
+  _clipboard = {}
+end
 
 ---@type LazySpec
 return {
@@ -73,7 +79,7 @@ return {
         -- This can be found in the `lua/lazy_setup.lua` file
         highlighturl_enabled = true, -- highlight URLs by default
         ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-        clipboard = vim.fn.has "nvim-0.10" and osc52_clipboard or {},
+        clipboard = _clipboard,
       },
     },
     -- Mappings can be configured through AstroCore as well.
