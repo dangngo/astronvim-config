@@ -1,7 +1,17 @@
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
+
+local osc52_clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy "+",
+    ["*"] = require("vim.ui.clipboard.osc52").copy "*",
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste "+",
+    ["*"] = require("vim.ui.clipboard.osc52").paste "*",
+  },
+}
 
 ---@type LazySpec
 return {
@@ -63,6 +73,7 @@ return {
         -- This can be found in the `lua/lazy_setup.lua` file
         highlighturl_enabled = true, -- highlight URLs by default
         ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+        clipboard = vim.fn.has "nvim-0.10" and osc52_clipboard or {},
       },
     },
     -- Mappings can be configured through AstroCore as well.
