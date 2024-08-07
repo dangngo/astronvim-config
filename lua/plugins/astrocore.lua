@@ -41,6 +41,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
+        clipboard = "unnamedplus",
         expandtab = true, -- use spaces instead of tabs
         foldenable = true, -- enable fold for nvim-ufo
         hidden = true, -- enable background buffers
