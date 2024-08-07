@@ -1,8 +1,19 @@
 return {
   "max397574/better-escape.nvim",
-  event = "InsertCharPre",
   opts = {
-    mapping = { "fd" },
-    timeout = 300,
+    timeout = vim.o.timeoutlen,
+    default_mappings = true,
+    mappings = {
+      i = {
+        f = {
+          d = "<Esc>",
+        },
+      },
+      t = {
+        f = {
+          d = "<Esc>",
+        },
+      },
+    },
   },
 }
