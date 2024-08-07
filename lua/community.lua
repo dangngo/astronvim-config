@@ -6,6 +6,7 @@
 return {
   "AstroNvim/astrocommunity",
   -- import/override with your plugins folder
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 
   -- language packs
   { import = "astrocommunity.pack.lua" },
