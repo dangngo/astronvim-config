@@ -39,4 +39,22 @@ return {
       }
     end,
   },
+  {
+    "max397574/better-escape.nvim",
+    opts = function(_, opts)
+      opts.default_mappings = false
+      opts.mappings = {
+        i = {
+          f = {
+            d = "<Esc>",
+          },
+        },
+        t = {
+          f = {
+            d = "<Esc>",
+          },
+        },
+      }
+    end,
+  },
 }
