@@ -7,6 +7,12 @@ vim.api.nvim_create_autocmd(
   { pattern = { "*" }, callback = function() vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" } end }
 )
 
+vim.filetype.add {
+  pattern = {
+    [".*/charts/[^/]+/templates/.*%.yaml"] = "helm",
+  },
+}
+
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
   pattern = { "term://*" },
   callback = function()
