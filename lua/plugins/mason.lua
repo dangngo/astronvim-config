@@ -14,7 +14,7 @@ return {
         "gopls",
         "pyright",
         "terraformls",
-        "tsserver",
+        "ts_ls",
       })
     end,
   },
@@ -29,8 +29,8 @@ return {
         "shfmt",
         "shellcheck",
         -- python
-        "black",
-        "isort",
+        -- "black",
+        -- "isort",
         -- go
         "gomodifytags",
         "gofumpt",

@@ -1,7 +1,7 @@
 return {
   "stevearc/conform.nvim",
   opts = {
-    python = { "isort", "black" },
+    python = { "ruff" },
     go = { "goimports", "gofumpt" },
     tf = { "terraform_fmt" },
     terraform = { "terraform_fmt" },

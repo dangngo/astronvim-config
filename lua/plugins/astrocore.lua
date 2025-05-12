@@ -93,7 +93,7 @@ return {
           desc = "Find files",
         },
         ["<Leader><Tab>"] = { "<cmd>Telescope buffers<cr>", desc = "Buffers list" },
-        ["<C-\\>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggleterm" },
+        ["<C-\\>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggleterm" },
 
         -- Buffers
         ["<Leader>q"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
