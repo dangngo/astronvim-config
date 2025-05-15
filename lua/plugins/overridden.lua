@@ -11,35 +11,6 @@ return {
     end,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    opts = function(_, opts)
-      opts.pickers = {
-        colorscheme = {
-          enable_preview = true,
-        },
-        find_files = {
-          theme = "ivy",
-          hidden = true,
-        },
-        buffers = {
-          theme = "ivy",
-        },
-        live_grep = {
-          theme = "ivy",
-        },
-        current_buffer_fuzzy_find = {
-          theme = "ivy",
-        },
-        oldfiles = {
-          theme = "ivy",
-        },
-        registers = {
-          theme = "cursor",
-        },
-      }
-    end,
-  },
-  {
     "max397574/better-escape.nvim",
     opts = function(_, opts)
       opts.default_mappings = false
@@ -52,6 +23,30 @@ return {
         t = {
           f = {
             d = "<Esc>",
+          },
+        },
+      }
+    end,
+  },
+  {
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      opts.explorer = { enabled = true }
+      opts.lazygit = { enabled = true }
+      opts.picker = {
+        enabled = true,
+        sources = {
+          explorer = {
+            enabled = true,
+            hidden = true,
+            auto_close = false,
+            win = {
+              list = {
+                keys = {
+                  ["o"] = { { "pick_win", "jump" }, mode = { "n", "i" } },
+                },
+              },
+            },
           },
         },
       }
