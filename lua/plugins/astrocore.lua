@@ -88,41 +88,67 @@ return {
       n = {
         -- CORE
         ["<Leader>w"] = { "<cmd>confirm qall<cr>", desc = "Quit" },
-        ["<Leader><Leader>"] = {
-          function() require("telescope.builtin").find_files { theme = "ivy" } end,
-          desc = "Find files",
-        },
-        ["<Leader><Tab>"] = { "<cmd>Telescope buffers<cr>", desc = "Buffers list" },
-        ["<C-\\>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggleterm" },
+        ["<leader>e"] = { function() require("snacks").explorer() end, desc = "File Explorer" },
 
         -- Buffers
-        ["<Leader>q"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-        ["<Leader>bd"] = {
-          function()
-            require("astroui.status.heirline").buffer_picker(
-              function(bufnr) require("astrocore.buffer").close(bufnr) end
-            )
-          end,
-          desc = "Close buffer from tabline",
+        ["<Leader><Tab>"] = { function() require("snacks").picker.buffers() end, desc = "Buffers list" },
+        ["<Leader>q"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
+        ["<leader>bd"] = { function() require("snacks").bufdelete() end, desc = "Delete Buffer" },
+
+        -- Files
+        ["<leader><space>"] = { function() require("snacks").picker.files() end, desc = "Find Files" },
+        ["<Leader>ff"] = { function() require("snacks").picker.lines() end, desc = "Find lines in buffer" },
+        ["<Leader>fs"] = { function() require("snacks").picker.smart() end, desc = "Find buffers/recent/files" },
+        ["<Leader>fF"] = {
+          function() require("snacks").picker.files { hidden = true, ignored = true } end,
+          desc = "Find all files",
+        },
+        ["<leader>fg"] = { function() require("snacks").picker.git_files() end, desc = "Find Git Files" },
+        ["<leader>fp"] = { function() require("snacks").picker.projects() end, desc = "Projects" },
+        ["<leader>fr"] = { function() require("snacks").picker.recent() end, desc = "Recent" },
+
+        -- Grep
+        ["<Leader>/"] = { function() require("snacks").picker.grep() end, desc = "Grep" },
+        ["<Leader>fb"] = { function() require("snacks").picker.grep_buffers() end, desc = "Grep open buffers" },
+        ["<Leader>fc"] = { function() require("snacks").picker.grep_word() end, desc = "Find word under cursor" },
+        ["<Leader>fw"] = {
+          function() require("snacks").picker.grep { hidden = true, ignored = true } end,
+          desc = "Grep all files",
         },
 
-        ["<Leader>c"] = false,
-
-        -- Telescope
-        ["<Leader>ff"] = {
-          function() require("telescope.builtin").current_buffer_fuzzy_find() end,
-          desc = "Search current buffer",
+        -- LSP
+        ["<leader>lR"] = {
+          function() require("snacks").picker.lsp_references() end,
+          desc = "References",
         },
-        ["<Leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
-        ["<Leader>fy"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" },
-        ["<Leader>/"] = { function() require("telescope.builtin").live_grep() end, desc = "Find words", expr = false },
+        ["gI"] = { function() require("snacks").picker.lsp_implementations() end, desc = "Goto Implementation" },
+
+        -- Search
+        ["<leader>f<CR>"] = { function() require("snacks").picker.resume() end, desc = "Resume" },
+        ["<Leader>fk"] = { function() require("snacks").picker.keymaps() end, desc = "Find keymaps" },
+        ["<leader>fn"] = { function() require("snacks").picker.notifications() end, desc = "Notification History" },
+        ["<Leader>f'"] = { function() require("snacks").picker.marks() end, desc = "Find marks" },
+        ["<Leader>fu"] = { function() require("snacks").picker.undo() end, desc = "Find undo history" },
+        ["<leader>f:"] = { function() require("snacks").picker.command_history() end, desc = "Command History" },
+        ['<leader>f"'] = { function() require("snacks").picker.registers() end, desc = "Registers" },
+        ["<leader>fq"] = { function() require("snacks").picker.qflist() end, desc = "Quickfix lists" },
+
+        -- Terminal
+        ["<C-\\>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggleterm" },
+
+        -- Git
+        ["<leader>gg"] = { function() require("snacks").lazygit.open() end, desc = "Lazygit" },
 
         -- Disable idiot mappings
+        ["<Leader>c"] = false,
         ["|"] = false,
         ["\\"] = false,
         ["s"] = false,
+      },
+      v = {
+        ["<Leader>fc"] = { function() require("snacks").picker.grep_word() end, desc = "Find word under cursor" },
       },
       t = {
         ["<C-\\>"] = { "<cmd>ToggleTerm <cr>", desc = "Toggleterm" },
