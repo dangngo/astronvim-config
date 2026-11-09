@@ -31,7 +31,7 @@ return {
   {
     "folke/snacks.nvim",
     opts = function(_, opts)
-      opts.explorer = { enabled = true }
+      opts.explorer = { enabled = false }
       opts.lazygit = { enabled = true }
       opts.picker = {
         enabled = true,

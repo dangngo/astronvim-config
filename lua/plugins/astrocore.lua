@@ -88,7 +88,7 @@ return {
       n = {
         -- CORE
         ["<Leader>w"] = { "<cmd>confirm qall<cr>", desc = "Quit" },
-        ["<leader>e"] = { function() require("snacks").explorer() end, desc = "File Explorer" },
+        -- ["<leader>e"] = { function() require("snacks").explorer() end, desc = "File Explorer" },
 
         -- Buffers
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
