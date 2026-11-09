@@ -33,7 +33,7 @@ return {
     opts = function(_, opts)
       opts.explorer = { enabled = false }
       opts.lazygit = { enabled = true }
-      opts.picker = {
+      opts.picker = vim.tbl_deep_extend("force", opts.picker or {}, {
         enabled = true,
         sources = {
           explorer = {
@@ -49,7 +49,7 @@ return {
             },
           },
         },
-      }
+      })
     end,
   },
 }

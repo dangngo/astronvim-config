@@ -10,7 +10,6 @@ return {
         "lua-language-server",
         "bash-language-server",
         "gopls",
-        "pyright",
         "terraform-ls",
         "typescript-language-server",
         "shfmt",

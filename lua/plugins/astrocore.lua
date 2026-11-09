@@ -29,7 +29,7 @@ return {
       large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
-      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+      diagnostics = true, -- enable diagnostics at start
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
@@ -43,7 +43,7 @@ return {
       opt = { -- vim.opt.<key>
         clipboard = "unnamedplus",
         expandtab = true, -- use spaces instead of tabs
-        foldenable = true, -- enable fold for nvim-ufo
+        foldenable = true, -- enable folding
         hidden = true, -- enable background buffers
         history = 100, -- remember n lines in history
         ignorecase = true, -- Case insensitive searching
